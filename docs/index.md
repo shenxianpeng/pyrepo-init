@@ -1,9 +1,10 @@
 # pyrepo-init
 
-`pyrepo-init` is a reusable Python repository starter prepared for PyPI
-distribution. It includes a `src/` package layout, setuptools-based packaging,
-dynamic versions from Git tags, pytest tests, pre-commit linting, Nox sessions,
-and MkDocs documentation.
+`pyrepo-init` creates a new Python project by copying this project itself. It
+rewrites the distribution name, package name, docs, tests, and GitHub metadata
+so the generated project is named after the command argument.
+
+There is no separate template directory. The source project is the template.
 
 ## Install
 
@@ -14,29 +15,19 @@ pip install pyrepo-init
 ## Use
 
 ```bash
-pyrepo-init
-python -m pyrepo_init
-```
-
-```python
-from pyrepo_init.main import get_message
-
-print(get_message())
-```
-
-## Develop
-
-```bash
-python -m pip install --upgrade pip nox
+pyrepo-init hello-world
+cd hello-world
 nox -s test
 nox -s lint
-nox -s docs
 ```
 
-## Package Layout
+Use `--no-git` to skip the default `git init`.
+
+## Generated Package Layout
 
 ```text
-src/pyrepo_init/       Python package
-tests/                 pytest test suite
-docs/                  MkDocs documentation
+src/<package>/       Python package
+tests/               pytest test suite
+docs/                MkDocs documentation
+.github/workflows/   GitHub Actions workflows
 ```
