@@ -1,10 +1,16 @@
 # pyrepo-init
 
-`pyrepo-init` is a reusable Python repository starter with packaging, tests,
-linting, documentation, and PyPI publishing configuration already wired in.
+`pyrepo-init` creates a new Python project by copying this project itself.
 
-Use it as a starting point for small Python packages that should be installable
-with `pip`, testable with `pytest`, and releasable through GitHub Actions.
+Running `pyrepo-init hello-world` creates `hello-world/` with the same package
+layout, tests, docs, linting, Nox sessions, and GitHub workflows as this
+project. Project names and import paths are rewritten, so `pyrepo-init` becomes
+`hello-world` and `pyrepo_init` becomes `hello_world`.
+
+There is no separate template directory to maintain. When run from a source
+checkout or editable install, the command copies the current project tree. If a
+local checkout is not available, it falls back to downloading this repository's
+source archive.
 
 ## Installation
 
@@ -14,18 +20,41 @@ pip install pyrepo-init
 
 ## Usage
 
-```python
-from pyrepo_init.main import get_message
-
-print(get_message())
+```bash
+pyrepo-init hello-world
+cd hello-world
+python -m pip install --upgrade pip nox
+nox -s test
+nox -s lint
 ```
 
-Or via command line:
+The command runs `git init` in the generated project by default. Use `--no-git`
+to only write the files:
 
 ```bash
-pyrepo-init
-python -m pyrepo_init
+pyrepo-init hello-world --no-git
 ```
+
+## Generated Layout
+
+```text
+hello-world/
+├── .github/
+│   ├── dependabot.yml
+│   └── workflows/
+├── docs/
+├── src/hello_world/
+├── tests/
+├── .pre-commit-config.yaml
+├── LICENSE
+├── README.md
+├── mkdocs.yml
+├── noxfile.py
+└── pyproject.toml
+```
+
+Local artifacts such as `.git`, virtual environments, caches, `dist/`, and
+generated docs are not copied.
 
 ## Development
 
@@ -35,24 +64,6 @@ nox -s test
 nox -s lint
 nox -s docs
 ```
-
-## Release to PyPI
-
-Before publishing, verify that the package builds cleanly:
-
-```bash
-python -m pip install --upgrade build twine
-python -m build
-python -m twine check dist/*
-```
-
-This repository includes `.github/workflows/publish-pypi.yml`:
-
-- Manual `workflow_dispatch` publishes to TestPyPI.
-- Publishing a GitHub release publishes to PyPI.
-
-Configure trusted publishing for `shenxianpeng/pyrepo-init` on PyPI and
-TestPyPI before releasing.
 
 ## License
 
