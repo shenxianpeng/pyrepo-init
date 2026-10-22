@@ -1,0 +1,27 @@
+.gitignore
+  s_6535937731a8c8::t_9942610713f70d 11-12
+noxfile.py
+  s_6535937731a8c8::t_4114854827d43f 19
+pyproject.toml
+  s_6535937731a8c8::t_2aadf1b80ce653 58-65
+tests/test_entrypoint.py
+  s_6535937731a8c8::t_b0fd936ea3efe2 1-41
+tests/test_version.py
+  s_6535937731a8c8::t_e88f5feb6a783b 1-68
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "8bb3bd30d839453444f66b047ae4bf9b71197263",
+  "prompts": {},
+  "sessions": {
+    "s_6535937731a8c8": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "7be933fd-3555-4179-bf89-3d88091b3193",
+        "model": "claude-fable-5-1"
+      },
+      "human_author": "Xianpeng Shen <xianpeng.shen@gmail.com>"
+    }
+  }
+}
