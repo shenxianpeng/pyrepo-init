@@ -1,0 +1,27 @@
+.github/workflows/pre-commit.yml
+  s_6535937731a8c8::t_b311d56293253f 6-8,13-14,19
+.github/workflows/publish-pypi.yml
+  s_6535937731a8c8::t_e0f9ece96285b3 17,21,32,37
+.github/workflows/release-drafter.yml
+  s_6535937731a8c8::t_f6221efc4fa7e2 17
+.github/workflows/stale.yml
+  s_6535937731a8c8::t_3c8ea470ad87e2 12
+.github/workflows/test.yml
+  s_6535937731a8c8::t_84d126609151be 14-16,27,32
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "52f183cb3fe6fee34f6a766bd906a60a4244c340",
+  "prompts": {},
+  "sessions": {
+    "s_6535937731a8c8": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "7be933fd-3555-4179-bf89-3d88091b3193",
+        "model": "claude-fable-5-1"
+      },
+      "human_author": "Xianpeng Shen <xianpeng.shen@gmail.com>"
+    }
+  }
+}
