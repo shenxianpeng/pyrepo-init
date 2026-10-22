@@ -16,7 +16,7 @@ def test(session: nox.Session) -> None:
     """Run tests."""
     session.install("--upgrade", "pip")
     session.install("-e", ".[test]")
-    session.run("pytest", *session.posargs)
+    session.run("pytest", "--cov", "--cov-report=term-missing", *session.posargs)
 
 
 @nox.session
